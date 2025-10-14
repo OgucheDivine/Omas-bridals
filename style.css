@@ -1,0 +1,287 @@
+/* =====================
+   BASE SETUP
+===================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lora', serif;
+  background-color: #fffaf8;
+  color: #3e2a2a;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* =====================
+   NAVIGATION BAR
+===================== */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(217, 176, 140, 0.2); /* elegant touch */
+  z-index: 10;
+}
+
+/* Left: Social icons */
+.social-links {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+}
+
+.social-links a {
+  color: #b37b84;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 245, 248, 0.8);
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+.social-links a:hover {
+  color: #d9b08c;
+  transform: scale(1.15);
+  text-shadow: 0 0 10px rgba(217, 176, 140, 0.4);
+}
+
+/* Center: Brand name */
+.brand-name {
+  flex: 1;
+  text-align: center;
+  color: #b37b84;
+  font-size: 2.4rem;
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  cursor: default;
+}
+
+.brand-name:hover {
+  color: #d9b08c;
+  text-shadow: 0 0 12px rgba(217, 176, 140, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Right: Menu */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: #3e2a2a;
+  font-weight: 500;
+  transition: color 0.3s;
+  border-bottom: 2px solid #b37b84;
+  padding-bottom: 2px;
+}
+
+nav a:hover {
+  color: #b37b84;
+}
+
+/* Mobile-friendly navbar */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .social-links {
+    order: 1;
+  }
+
+  .brand-name {
+    order: 2;
+  }
+
+  nav ul {
+    order: 3;
+  }
+}
+
+/* =====================
+   HERO SECTION
+===================== */
+.hero {
+  background-image: url("images/hero.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 90vh; /* fuller screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #3e2a2a;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 245, 248, 0.4); /* soft romantic overlay */
+}
+
+.hero-text {
+  background: rgba(255, 255, 255,0.8);
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 800px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 2.8rem;
+  color: #b37b84;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #5a4a4a;
+}
+
+/* =====================
+   BODY SECTIONS
+===================== */
+.section {
+  padding: 5rem 2rem;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-size: 2.2rem;
+  color: #b37b84;
+  margin-bottom: 1rem;
+}
+
+.section p {
+  color: #5a4a4a;
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+#story { background-color: #fffaf8; }
+#vision { background-color: #fff5f8; }
+#brides { background-color: #fffaf8; }
+#promise { background-color: #fff5f8; }
+
+/* =====================
+   PHOTO GRID
+===================== */
+/* Keep photos on a straight line with horizontal scroll on small screens */
+.photo-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  overflow-x: auto;         /* enables horizontal scroll if needed */
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1rem;
+}
+
+.photo-row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.photo-row::-webkit-scrollbar-thumb {
+  background: #d9b08c;
+  border-radius: 4px;
+}
+
+.photo-row img {
+  flex: 0 0 auto;           /* prevents images from shrinking */
+  width: 220px;             /* consistent size */
+  height: 300px;
+  object-fit: cover;
+  border-radius: 1rem;
+  scroll-snap-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.photo-row img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =====================
+   CONTACT & FOOTER
+===================== */
+.contact {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.contact a {
+  color: #b37b84;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer {
+  background-color: #b37b84;
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* =====================
+   ANIMATIONS
+===================== */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease-out;
+}
+
+.fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================
+   MOBILE RESPONSIVENESS
+===================== */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 60vh;
+    text-align: center;
+  }
+
+  .gallery .grid {
+    gap: 1rem;
+  }
+
+  .section {
+    padding: 3rem 1.5rem;
+  }
+
+  .brand-name {
+    font-size: 1.8rem;
+  }
+}
